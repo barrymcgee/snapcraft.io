@@ -349,6 +349,14 @@ $color-social-icon-foreground: $color-light;
 
 @include snapcraft-p-side-panel;
 
+@import "patterns_p-password-toggle-input";
+
+@include p-password-toggle-input;
+
+@import "snapcraft_p-search-results";
+
+@include snapcraft-p-search-results;
+
 dl {
   margin-bottom: $spv-outer--scaleable;
 }
@@ -400,4 +408,14 @@ code {
 
 .u-text-muted {
   color: $color-mid-dark;
+}
+
+.p-navigation {
+  .p-navigation__link.is-selected > a::before {
+    background-color: $ubuntu-orange;
+  }
+}
+
+.u-overflow-visible {
+  overflow: visible !important;
 }

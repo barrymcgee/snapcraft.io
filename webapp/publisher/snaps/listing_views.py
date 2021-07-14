@@ -130,6 +130,9 @@ def get_listing_snap(snap_name):
         "categories": categories,
         "tour_steps": tour_steps,
         "status": snap_details["status"],
+        "update_metadata_on_release": snap_details[
+            "update_metadata_on_release"
+        ],
     }
 
     return flask.render_template("publisher/listing.html", **context)
@@ -379,6 +382,7 @@ def post_preview(snap_name):
     context["is_preview"] = True
     context["package_name"] = context["snap_name"]
     context["snap_title"] = context["title"]
+    context["appliances"] = []
 
     # Images
     icons = get_icon(context["images"])
@@ -387,6 +391,7 @@ def post_preview(snap_name):
     context["video"] = get_video(context["images"])
 
     # Channel map
+    context["channel_map"] = []
     context["default_track"] = "latest"
     context["lowest_risk_available"] = "stable"
     context["version"] = "test"
